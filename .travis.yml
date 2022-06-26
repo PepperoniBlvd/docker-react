@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t zhenli/docker-react -f Dockerfile.dev .
+
+scripts:
+  - docker run -e CI=true zhenli/docker-react npm run test
